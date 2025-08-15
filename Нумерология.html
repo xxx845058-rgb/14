@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Нумерология онлайн | Магический Расчет Числа Судьбы | Персональный Анализ</title>
+    
+    <!-- Мета-теги для SEO -->
+    <meta name="description" content="Волшебный расчет нумерологии онлайн с 3D визуализацией. Узнайте свое число судьбы, жизненный путь и скрытые таланты. Профессиональный нумерологический анализ личности по дате рождения.">
+    <meta name="keywords" content="нумерология онлайн, расчет числа судьбы, нумерологический анализ, число жизненного пути, нумерология по дате рождения">
+    
+    <!-- Канонический URL -->
+    <link rel="canonical" href="https://ваш-домен.ru/нумерология_онлайн.html">
+    
+    <!-- OpenGraph разметка -->
+    <meta property="og:title" content="Нумерология онлайн | Магический Расчет Числа Судьбы">
+    <meta property="og:description" content="Волшебный расчет нумерологии онлайн с 3D визуализацией. Узнайте свое число судьбы и жизненный путь.">
+    <meta property="og:image" content="https://ваш-домен.ru/images/numerology.jpg">
+    <meta property="og:url" content="https://ваш-домен.ru/нумерология_онлайн.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Иконка сайта -->
+    <link rel="icon" href="https://i.ibb.co/stYNTsb/Pentagram-with-one-point-up.png" type="image/png" />
+
+    <!-- Yandex.RTB -->
+    <script>window.yaContextCb=window.yaContextCb||[]</script>
+    <script src="https://yandex.ru/ads/system/context.js" async></script>
+        
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Dancing+Script:wght@700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle at 50% 50%, #1a237e, #000051);
+            color: #fff;
+            overflow-x: hidden;
+            overflow-y: auto;
+            min-height: 100vh;
+            font-family: 'Cinzel', serif;
+            cursor: none;
+        }
+
+        /* Магический курсор */
+        .magic-cursor {
+            position: fixed;
+            width: 22px;
+            height: 22px;
+            background: radial-gradient(circle, #3f51b5, #7986cb);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 10000;
+            mix-blend-mode: screen;
+            animation: numerologyPulse 2.2s infinite;
+        }
+
+        @keyframes numerologyPulse {
+            0%, 100% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.6); opacity: 1; }
+        }
+
+        .cursor-trail {
+            position: fixed;
+            width: 5px;
+            height: 5px;
+            background: #3f51b5;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0;
+            animation: trailFade 1.1s ease-out forwards;
+        }
+
+        @keyframes trailFade {
+            0% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(0.4); }
+        }
+
+        #starCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        /* Aurora нумерологии */
+        .numerology-aurora {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            opacity: 0.6;
+            background: linear-gradient(45deg, 
+                rgba(63, 81, 181, 0.3) 0%,
+                rgba(121, 134, 203, 0.3) 25%,
+                rgba(63, 81, 181, 0.3) 50%,
+                rgba(121, 134, 203, 0.3) 75%,
+                rgba(63, 81, 181, 0.3) 100%);
+            background-size: 400% 400%;
+            animation: numerologyAurora 18s ease-in-out infinite;
+        }
+
+        @keyframes numerologyAurora {
+            0%, 100% { background-position: 0% 50%; }
+            25% { background-position: 100% 0%; }
+            50% { background-position: 100% 100%; }
+            75% { background-position: 0% 100%; }
+        }
+
+        .button, .nav-button {
+            padding: 20px 40px;
+            font-size: 1.4em;
+            background: linear-gradient(45deg, #3f51b5, #7986cb);
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            margin: 15px;
+            box-shadow: 
+                0 0 30px rgba(63, 81, 181, 0.6), 
+                0 0 40px rgba(121, 134, 203, 0.4),
+                inset 0 0 30px rgba(255, 255, 255, 0.1);
+            transition: all 0.6s ease;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .button:before, .nav-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.5), 
+                transparent);
+            transition: all 0.7s ease;
+            transform: skewX(-45deg);
+        }
+
+        .button:hover:before, .nav-button:hover:before {
+            left: 100%;
+        }
+
+        .button:hover, .nav-button:hover {
+            background: linear-gradient(45deg, #7986cb, #3f51b5);
+            box-shadow: 
+                0 0 40px rgba(63, 81, 181, 0.8), 
+                0 0 60px rgba(121, 134, 203, 0.6);
+            transform: translateY(-8px) scale(1.08);
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4.5em;
+            background: linear-gradient(45deg, #3f51b5, #7986cb, #3f51b5);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: numerologyTitleShimmer 4s ease-in-out infinite;
+            margin-bottom: 20px;
+            text-shadow: 0 0 50px rgba(63, 81, 181, 0.6);
+        }
+
+        @keyframes numerologyTitleShimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        p {
+            font-size: 1.3em;
+            text-shadow: 0 0 20px #7986cb;
+            color: #7986cb;
+            margin-bottom: 25px;
+            animation: textGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes textGlow {
+            from { text-shadow: 0 0 20px #7986cb; }
+            to { text-shadow: 0 0 35px #7986cb, 0 0 50px #3f51b5; }
+        }
+
+        .content {
+            padding-top: 80px;
+            text-align: center;
+            min-height: 100vh;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        /* Магическая сфера */
+        .magical-sphere {
+            width: 300px;
+            height: 300px;
+            margin: 40px auto;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #7986cb, #3f51b5, #1a237e);
+            box-shadow: 
+                0 0 60px rgba(63, 81, 181, 0.8),
+                inset 0 0 60px rgba(121, 134, 203, 0.3),
+                0 0 120px rgba(63, 81, 181, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            animation: sphereFloat 8s ease-in-out infinite;
+            cursor: pointer;
+            transition: all 0.5s ease;
+        }
+
+        @keyframes sphereFloat {
+            0%, 100% { transform: translateY(0px) rotateY(0deg); }
+            50% { transform: translateY(-30px) rotateY(180deg); }
+        }
+
+        .magical-sphere:hover {
+            transform: scale(1.1) rotateY(180deg);
+            box-shadow: 
+                0 0 80px rgba(63, 81, 181, 1),
+                inset 0 0 80px rgba(121, 134, 203, 0.5),
+                0 0 160px rgba(63, 81, 181, 0.6);
+        }
+
+        .sphere-number {
+            font-size: 4em;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 0 30px #fff;
+            animation: numberGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes numberGlow {
+            from { 
+                text-shadow: 0 0 30px #fff;
+                transform: scale(1);
+            }
+            to { 
+                text-shadow: 0 0 50px #fff, 0 0 70px #7986cb;
+                transform: scale(1.1);
+            }
+        }
+
+        .analysis-section {
+            margin: 50px auto;
+            max-width: 800px;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 25px;
+            border: 3px solid #3f51b5;
+            box-shadow: 
+                0 0 50px rgba(63, 81, 181, 0.4),
+                inset 0 0 50px rgba(63, 81, 181, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .analysis-section input {
+            padding: 15px 20px;
+            font-size: 1.2em;
+            border-radius: 15px;
+            border: 2px solid #3f51b5;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            margin: 10px;
+            box-shadow: 
+                0 0 20px rgba(63, 81, 181, 0.3),
+                inset 0 0 20px rgba(63, 81, 181, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .analysis-section input:focus {
+            outline: none;
+            border-color: #7986cb;
+            box-shadow: 
+                0 0 30px rgba(63, 81, 181, 0.6),
+                inset 0 0 30px rgba(63, 81, 181, 0.2);
+        }
+
+        .result {
+            margin-top: 40px;
+            padding: 35px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 20px;
+            color: #7986cb;
+            border: 3px solid #3f51b5;
+            box-shadow: 
+                0 0 40px rgba(63, 81, 181, 0.4),
+                inset 0 0 40px rgba(63, 81, 181, 0.1);
+            font-size: 1.2em;
+            line-height: 1.8;
+            animation: resultGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes resultGlow {
+            from { 
+                box-shadow: 0 0 40px rgba(63, 81, 181, 0.4), inset 0 0 40px rgba(63, 81, 181, 0.1);
+            }
+            to { 
+                box-shadow: 0 0 60px rgba(63, 81, 181, 0.6), inset 0 0 60px rgba(63, 81, 181, 0.2);
+            }
+        }
+
+        .nav-bar {
+            text-align: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+            display: flex;
+            justify-content: center;
+        }
+
+        .numerology-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .numerology-item {
+            background: rgba(63, 81, 181, 0.2);
+            padding: 30px;
+            border-radius: 20px;
+            border: 2px solid #3f51b5;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .numerology-item:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(121, 134, 203, 0.3), 
+                transparent);
+            transition: all 0.8s ease;
+        }
+
+        .numerology-item:hover:before {
+            left: 100%;
+        }
+
+        .numerology-item:hover {
+            background: rgba(63, 81, 181, 0.3);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(63, 81, 181, 0.5);
+        }
+
+        .numerology-item h3 {
+            color: #7986cb;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            text-shadow: 0 0 15px #7986cb;
+        }
+
+        /* Числовые частицы */
+        .number-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .number-particle {
+            position: absolute;
+            color: #3f51b5;
+            font-size: 30px;
+            font-weight: bold;
+            animation: numberParticleFloat 15s infinite linear;
+            opacity: 0.8;
+            font-family: 'Cinzel', serif;
+        }
+
+        @keyframes numberParticleFloat {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Звуковая кнопка */
+        .sound-button {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: linear-gradient(45deg, #3f51b5, #7986cb);
+            border: none;
+            border-radius: 50%;
+            width: 65px;
+            height: 65px;
+            cursor: pointer;
+            z-index: 10001;
+            box-shadow: 0 0 25px rgba(63, 81, 181, 0.5);
+            transition: all 0.3s ease;
+            font-size: 1.6em;
+        }
+
+        .sound-button:hover {
+            transform: scale(1.15);
+            box-shadow: 0 0 35px rgba(63, 81, 181, 0.8);
+        }
+
+        /* Всплывающие уведомления */
+        .popup, .loading-image {
+            position: fixed;
+            background: rgba(0, 0, 0, 0.9);
+            color: #fff;
+            border: 2px solid #3f51b5;
+            padding: 25px;
+            box-shadow: 0 0 40px rgba(63, 81, 181, 0.5);
+            border-radius: 15px;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .popup {
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 400px;
+        }
+
+        .loading-image {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .loading-image img {
+            max-width: 300px;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(63, 81, 181, 0.6);
+        }
+
+        /* Адаптивность для планшетов */
+        @media (max-width: 768px) {
+            .content { 
+                padding: 20px; 
+                margin-top: 80px;
+            }
+            .nav-bar { 
+                padding: 15px 20px;
+            }
+            .nav-button { 
+                width: 120px; 
+                font-size: 0.9em; 
+                padding: 12px 20px;
+                margin: 8px 5px;
+            }
+            .magical-sphere {
+                width: 200px;
+                height: 200px;
+                margin: 20px auto;
+            }
+            .sphere-number {
+                font-size: 3em;
+            }
+            h1 { 
+                font-size: 2.5em; 
+                margin-bottom: 15px;
+            }
+            .numerology-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            .analysis-section {
+                padding: 15px;
+            }
+            .loading-image img {
+                width: 60px;
+                height: 60px;
+            }
+            input[type="date"] {
+                width: 100%;
+                font-size: 1em;
+                padding: 12px;
+            }
+            button {
+                width: 100%;
+                font-size: 1em;
+                padding: 12px 20px;
+            }
+            .sound-button {
+                width: 50px;
+                height: 50px;
+                bottom: 15px;
+                left: 15px;
+            }
+            
+            /* Отключаем тяжелые анимации на планшетах */
+            .aurora {
+                animation: none;
+                opacity: 0.3;
+            }
+            
+            .crystal {
+                display: none;
+            }
+            
+            .particle {
+                display: none;
+            }
+        }
+
+        /* Адаптивность для мобильных телефонов */
+        @media (max-width: 480px) {
+            .content { 
+                padding: 15px; 
+                margin-top: 70px;
+            }
+            .nav-bar { 
+                padding: 10px 15px;
+                flex-wrap: wrap;
+            }
+            .nav-button { 
+                width: 100px; 
+                font-size: 0.8em; 
+                padding: 10px 15px;
+                margin: 5px 3px;
+            }
+            .magical-sphere {
+                width: 150px;
+                height: 150px;
+                margin: 15px auto;
+            }
+            .sphere-number {
+                font-size: 2.5em;
+            }
+            h1 { 
+                font-size: 2em; 
+                margin-bottom: 10px;
+                line-height: 1.2;
+            }
+            .numerology-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            .analysis-section {
+                padding: 10px;
+            }
+            .loading-image img {
+                width: 50px;
+                height: 50px;
+            }
+            input[type="date"] {
+                width: 100%;
+                font-size: 0.9em;
+                padding: 10px;
+            }
+            button {
+                width: 100%;
+                font-size: 0.9em;
+                padding: 10px 15px;
+            }
+            .sound-button {
+                width: 45px;
+                height: 45px;
+                bottom: 10px;
+                left: 10px;
+            }
+            
+            /* Отключаем все тяжелые анимации на мобильных */
+            .aurora {
+                animation: none;
+                opacity: 0.2;
+            }
+            
+            .crystal {
+                display: none;
+            }
+            
+            .particle {
+                display: none;
+            }
+            
+            /* Упрощаем фон */
+            body {
+                background: linear-gradient(135deg, #1a0033 0%, #000000 100%);
+            }
+            
+            /* Отключаем canvas анимации */
+            #starCanvas {
+                display: none;
+            }
+        }
+
+        /* Адаптивность для очень маленьких экранов */
+        @media (max-width: 360px) {
+            .content { 
+                padding: 10px; 
+                margin-top: 60px;
+            }
+            .nav-bar { 
+                padding: 8px 10px;
+            }
+            .nav-button { 
+                width: 90px; 
+                font-size: 0.75em; 
+                padding: 8px 12px;
+                margin: 3px 2px;
+            }
+            .magical-sphere {
+                width: 120px;
+                height: 120px;
+                margin: 10px auto;
+            }
+            .sphere-number {
+                font-size: 2em;
+            }
+            h1 { 
+                font-size: 1.8em; 
+            }
+            .sound-button {
+                width: 40px;
+                height: 40px;
+                bottom: 8px;
+                left: 8px;
+            }
+        }
+
+        /* Ландшафтная ориентация на мобильных */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .content {
+                margin-top: 50px;
+                padding: 10px;
+            }
+            .nav-bar {
+                padding: 8px 15px;
+            }
+            .nav-button {
+                width: 100px;
+                font-size: 0.8em;
+                padding: 8px 12px;
+                margin: 5px 3px;
+            }
+            h1 {
+                font-size: 1.8em;
+                margin-bottom: 8px;
+            }
+            .sound-button {
+                bottom: 10px;
+                left: 10px;
+            }
+        }
+
+        /* Улучшенная поддержка touch устройств */
+        @media (hover: none) and (pointer: coarse) {
+            .nav-button:hover {
+                transform: none;
+                box-shadow: 
+                    0 8px 25px rgba(0, 0, 0, 0.3),
+                    0 0 25px rgba(255, 0, 222, 0.4),
+                    inset 0 0 25px rgba(255, 255, 255, 0.1);
+            }
+            
+            .nav-button:active {
+                transform: scale(0.95);
+                box-shadow: 
+                    0 4px 15px rgba(0, 0, 0, 0.4),
+                    0 0 30px rgba(255, 0, 222, 0.6);
+            }
+
+            .sound-button:hover {
+                transform: none;
+            }
+            
+            .sound-button:active {
+                transform: scale(0.9);
+            }
+            
+            /* Отключаем тяжелые эффекты на touch устройствах */
+            .aurora {
+                animation: none;
+                opacity: 0.2;
+            }
+            
+            .crystal {
+                display: none;
+            }
+            
+            .particle {
+                display: none;
+            }
+            
+            #starCanvas {
+                display: none;
+            }
+        }
+    
+        /* ОПТИМИЗАЦИИ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ */
+        
+        /* Оптимизации для медленных устройств */
+        .low-performance * {
+            animation: none !important;
+            transition: none !important;
+        }
+        
+        .low-performance .aurora,
+        .low-performance .numerology-aurora,
+        .low-performance .rune-aurora,
+        .low-performance .dream-aurora {
+            display: none !important;
+        }
+        
+        .low-performance .particles,
+        .low-performance .numerology-particles,
+        .low-performance .rune-particles,
+        .low-performance .dream-particles {
+            display: none !important;
+        }
+        
+        .low-performance #starCanvas {
+            display: none !important;
+        }
+        
+        .low-performance .magic-cursor {
+            display: none !important;
+        }
+        
+        .low-performance .cursor-trail {
+            display: none !important;
+        }
+        
+        .low-performance body {
+            background: #000000 !important;
+        }
+        
+        .low-performance .nav-button,
+        .low-performance .button {
+            box-shadow: none !important;
+        }
+        
+        .low-performance h1 {
+            background: #c77dff !important;
+            -webkit-text-fill-color: #c77dff !important;
+        }
+        
+        .low-performance p {
+            text-shadow: none !important;
+        }
+
+        /* Адаптивность для планшетов */
+        @media (max-width: 768px) {
+            .aurora,
+            .numerology-aurora,
+            .rune-aurora,
+            .dream-aurora {
+                animation: none !important;
+                opacity: 0.2 !important;
+            }
+            
+            .particles,
+            .numerology-particles,
+            .rune-particles,
+            .dream-particles {
+                display: none !important;
+            }
+            
+            #starCanvas {
+                display: none !important;
+            }
+            
+            .magic-cursor {
+                display: none !important;
+            }
+            
+            .cursor-trail {
+                display: none !important;
+            }
+            
+            /* Упрощаем анимации */
+            .card,
+            .rune-card,
+            .dream-card {
+                animation: none !important;
+                transition: transform 0.3s ease !important;
+            }
+            
+            .card:hover,
+            .rune-card:hover,
+            .dream-card:hover {
+                transform: translateY(-5px) scale(1.02) !important;
+            }
+            
+            /* Отключаем сложные эффекты */
+            .nav-button:before {
+                display: none !important;
+            }
+            
+            .nav-button:hover {
+                transform: translateY(-2px) scale(1.02) !important;
+                box-shadow: 0 5px 15px rgba(157, 78, 221, 0.4) !important;
+            }
+        }
+
+        /* Адаптивность для мобильных телефонов */
+        @media (max-width: 480px) {
+            .aurora,
+            .numerology-aurora,
+            .rune-aurora,
+            .dream-aurora {
+                animation: none !important;
+                opacity: 0.1 !important;
+            }
+            
+            .particles,
+            .numerology-particles,
+            .rune-particles,
+            .dream-particles {
+                display: none !important;
+            }
+            
+            #starCanvas {
+                display: none !important;
+            }
+            
+            .magic-cursor {
+                display: none !important;
+            }
+            
+            .cursor-trail {
+                display: none !important;
+            }
+            
+            /* Упрощаем анимации карт */
+            .card,
+            .rune-card,
+            .dream-card {
+                animation: none !important;
+                transition: transform 0.2s ease !important;
+            }
+            
+            .card:hover,
+            .rune-card:hover,
+            .dream-card:hover {
+                transform: translateY(-3px) scale(1.01) !important;
+            }
+            
+            /* Отключаем сложные эффекты */
+            .nav-button:before {
+                display: none !important;
+            }
+            
+            .nav-button:hover {
+                transform: translateY(-1px) scale(1.01) !important;
+                box-shadow: 0 3px 10px rgba(157, 78, 221, 0.3) !important;
+            }
+            
+            /* Упрощаем фон */
+            body {
+                background: linear-gradient(135deg, #1a0033 0%, #000000 100%) !important;
+            }
+            
+            /* Отключаем сложные тени */
+            .nav-button {
+                box-shadow: 0 3px 10px rgba(157, 78, 221, 0.3) !important;
+            }
+            
+            .button {
+                box-shadow: 0 5px 15px rgba(157, 78, 221, 0.4) !important;
+            }
+            
+            /* Упрощаем анимации текста */
+            h1 {
+                animation: none !important;
+                background: linear-gradient(45deg, #9d4edd, #c77dff) !important;
+                -webkit-background-clip: text !important;
+                background-clip: text !important;
+                -webkit-text-fill-color: transparent !important;
+            }
+            
+            p {
+                animation: none !important;
+                text-shadow: 0 0 10px #c77dff !important;
+            }
+        }
+
+        /* Адаптивность для очень маленьких экранов */
+        @media (max-width: 360px) {
+            .aurora,
+            .numerology-aurora,
+            .rune-aurora,
+            .dream-aurora {
+                display: none !important;
+            }
+            
+            .particles,
+            .numerology-particles,
+            .rune-particles,
+            .dream-particles {
+                display: none !important;
+            }
+            
+            #starCanvas {
+                display: none !important;
+            }
+            
+            .magic-cursor {
+                display: none !important;
+            }
+            
+            .cursor-trail {
+                display: none !important;
+            }
+            
+            /* Максимально упрощаем анимации */
+            .card,
+            .rune-card,
+            .dream-card {
+                animation: none !important;
+                transition: none !important;
+            }
+            
+            .card:hover,
+            .rune-card:hover,
+            .dream-card:hover {
+                transform: none !important;
+            }
+            
+            .nav-button {
+                transition: none !important;
+            }
+            
+            .nav-button:hover {
+                transform: none !important;
+            }
+            
+            /* Упрощаем фон до минимума */
+            body {
+                background: #000000 !important;
+            }
+            
+            /* Отключаем все тени */
+            .nav-button {
+                box-shadow: none !important;
+            }
+            
+            .button {
+                box-shadow: none !important;
+            }
+            
+            /* Упрощаем текст */
+            h1 {
+                animation: none !important;
+                background: #c77dff !important;
+                -webkit-text-fill-color: #c77dff !important;
+            }
+            
+            p {
+                animation: none !important;
+                text-shadow: none !important;
+            }
+        }
+
+        /* Улучшенная поддержка touch устройств */
+        @media (hover: none) and (pointer: coarse) {
+            .aurora,
+            .numerology-aurora,
+            .rune-aurora,
+            .dream-aurora {
+                animation: none !important;
+                opacity: 0.1 !important;
+            }
+            
+            .particles,
+            .numerology-particles,
+            .rune-particles,
+            .dream-particles {
+                display: none !important;
+            }
+            
+            #starCanvas {
+                display: none !important;
+            }
+            
+            .magic-cursor {
+                display: none !important;
+            }
+            
+            .cursor-trail {
+                display: none !important;
+            }
+            
+            /* Упрощаем анимации карт */
+            .card,
+            .rune-card,
+            .dream-card {
+                animation: none !important;
+                transition: transform 0.2s ease !important;
+            }
+            
+            .card:hover,
+            .rune-card:hover,
+            .dream-card:hover {
+                transform: none !important;
+            }
+            
+            .card:active,
+            .rune-card:active,
+            .dream-card:active {
+                transform: scale(0.98) !important;
+            }
+            
+            /* Отключаем сложные эффекты */
+            .nav-button:before {
+                display: none !important;
+            }
+            
+            /* Упрощаем фон */
+            body {
+                background: linear-gradient(135deg, #1a0033 0%, #000000 100%) !important;
+            }
+            
+            /* Отключаем сложные тени */
+            .nav-button {
+                box-shadow: 0 3px 10px rgba(157, 78, 221, 0.3) !important;
+            }
+            
+            .button {
+                box-shadow: 0 5px 15px rgba(157, 78, 221, 0.4) !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="numerology-aurora"></div>
+    <div class="number-particles" id="numberParticles"></div>
+    <canvas id="starCanvas"></canvas>
+    
+    <!-- Кнопка звука -->
+    <button class="sound-button" onclick="toggleSound()" title="Переключить звук">🔊</button>
+    
+    <!-- Всплывающее уведомление -->
+    <div id="popup" class="popup" style="display: none;">
+        <p>🔮 Привет! Я ваш виртуальный нумерологический помощник. Готовы узнать тайны чисел? 🔮</p>
+        <button onclick="closePopup()" class="button" style="padding: 10px 20px; font-size: 1em; margin: 5px;">Закрыть</button>
+        <div style="margin-top: 15px; text-align: center;">
+            <a href="#" onclick="openBot()" style="color: #7986cb; text-decoration: none;">✨ Связаться с магическим ботом ✨</a>
+        </div>
+    </div>
+
+    <!-- Изображение на загрузку страницы -->
+    <div id="loadingImage" class="loading-image">
+        <img src="https://i.ibb.co/5YrrRrz/photo-2024-10-23-15-21-20.jpg" alt="Магическая нумерология" style="width: 100%; max-width: 400px; height: auto; display: block; border: none;">
+    </div>
+    
+    <div class="nav-bar">
+        <button class="nav-button" onclick="window.location.href='нумерология_онлайн.html'" 
+                onmouseover="playMagicSound(500, 300)">🔢 Нумерология</button>
+        <button class="nav-button" onclick="window.location.href='руны.html'" 
+                onmouseover="playMagicSound(600, 300)">ᚱ Руны</button>
+        <button class="nav-button" onclick="window.location.href='таро.html'" 
+                onmouseover="playMagicSound(700, 300)">🃏 Таро</button>
+        <button class="nav-button" onclick="window.location.href='Толкования снов.html'" 
+                onmouseover="playMagicSound(800, 300)">💭 Толкования снов</button>       
+    </div>
+    
+    <div class="content">
+        <h1>🔮 Магическая Нумерология 🔮</h1>
+        
+        <section class="introduction">
+            <p>✨ Нумерология - древняя наука о числах, которая помогает раскрыть тайны вашей личности, судьбы и жизненного пути. Каждое число несет в себе особую вибрацию и энергетику, влияющую на различные аспекты жизни. ✨</p>
+            
+            <p>🌟 С помощью нашего магического онлайн калькулятора вы сможете рассчитать свои ключевые числа и получить подробную интерпретацию их значений. Узнайте, какие таланты и способности заложены в вас от рождения! 🌟</p>
+        </section>
+
+        <!-- Магическая сфера -->
+        <div class="magical-sphere" onclick="activateSphere(); playMagicSound(1000, 800)" id="magicalSphere">
+            <div class="sphere-number" id="sphereNumber">?</div>
+        </div>
+
+        <section class="numerology-types">
+            <h2>🌙 Виды магических расчетов 🌙</h2>
+            <div class="numerology-grid">
+                <div class="numerology-item">
+                    <h3>🌟 Число жизненного пути</h3>
+                    <p>Определяет вашу основную жизненную миссию и предназначение. Это число показывает, какие таланты и способности вам следует развивать для достижения космического успеха.</p>
+                </div>
+                
+                <div class="numerology-item">
+                    <h3>💫 Число души</h3>
+                    <p>Раскрывает ваши внутренние желания, стремления и истинные мотивы. Помогает понять, что действительно важно для вашей души и духовного развития.</p>
+                </div>
+                
+                <div class="numerology-item">
+                    <h3>✨ Число личности</h3>
+                    <p>Показывает, как вас воспринимают окружающие и какое магическое впечатление вы производите на людей при первой встрече.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="analysis-section">
+            <h3>🔮 Введите дату рождения для магического анализа 🔮</h3>
+            <input type="date" id="birthDate" placeholder="Выберите дату рождения">
+            <br>
+            <button id="analyzePersonality" class="button" 
+                    onclick="analyzePersonality(); playMagicSound(900, 600)">
+                ✨ Анализировать Личность ✨
+            </button>
+            <button id="calculateNumber" class="button" 
+                    onclick="calculateLifePath(); playMagicSound(1100, 600)">
+                🌟 Рассчитать Число Судьбы 🌟
+            </button>
+            <div id="analysisResult" class="result" style="display: none;"></div>
+            <div id="numerologyResult" class="result" style="display: none;"></div>
+        </div>
+    </div>
+
+    <!-- Рекламные блоки Яндекс -->
+    <div id="yandex_rtb_R-A-12356702-1"></div>
+    <script>
+    window.yaContextCb.push(() => {
+        Ya.Context.AdvManager.render({
+            "blockId": "R-A-12356702-1",
+            "renderTo": "yandex_rtb_R-A-12356702-1"
+        })
+    })
+    </script>
+
+    <script>
+        let audioContext;
+        let soundEnabled = true;
+        let sphereActive = false;
+
+        // Инициализация аудио
+        function initAudio() {
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        }
+
+        // Звуковые эффекты
+        function playMagicSound(frequency = 800, duration = 200) {
+            if (!soundEnabled || !audioContext) return;
+            
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
+            oscillator.frequency.exponentialRampToValueAtTime(frequency * 1.4, audioContext.currentTime + duration / 1000);
+            
+            gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + duration / 1000);
+            
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + duration / 1000);
+        }
+
+        function toggleSound() {
+            soundEnabled = !soundEnabled;
+            const button = document.querySelector('.sound-button');
+            button.innerHTML = soundEnabled ? '🔊' : '🔇';
+        }
+
+        // Магический курсор
+        document.addEventListener('DOMContentLoaded', function() {
+            const cursor = document.createElement('div');
+            cursor.className = 'magic-cursor';
+            document.body.appendChild(cursor);
+
+            let mouseX = 0, mouseY = 0;
+            let cursorX = 0, cursorY = 0;
+
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+
+                // Создаем след
+                if (Math.random() < 0.3) {
+                    const trail = document.createElement('div');
+                    trail.className = 'cursor-trail';
+                    trail.style.left = mouseX + 'px';
+                    trail.style.top = mouseY + 'px';
+                    document.body.appendChild(trail);
+
+                    setTimeout(() => {
+                        if (document.body.contains(trail)) {
+                            document.body.removeChild(trail);
+                        }
+                    }, 1100);
+                }
+            });
+
+            function updateCursor() {
+                cursorX += (mouseX - cursorX) * 0.1;
+                cursorY += (mouseY - cursorY) * 0.1;
+                cursor.style.left = cursorX + 'px';
+                cursor.style.top = cursorY + 'px';
+                requestAnimationFrame(updateCursor);
+            }
+            updateCursor();
+
+            // Инициализация
+            document.addEventListener('click', initAudio, { once: true });
+            createNumberParticles();
+        });
+
+        // Активация магической сферы
+        function activateSphere() {
+            const sphere = document.getElementById('magicalSphere');
+            const number = document.getElementById('sphereNumber');
+            
+            if (!sphereActive) {
+                sphereActive = true;
+                
+                // Анимация генерации числа
+                let counter = 0;
+                const interval = setInterval(() => {
+                    number.textContent = Math.floor(Math.random() * 9) + 1;
+                    counter++;
+                    
+                    if (counter > 20) {
+                        clearInterval(interval);
+                        const finalNumber = Math.floor(Math.random() * 9) + 1;
+                        number.textContent = finalNumber;
+                        
+                        setTimeout(() => {
+                            showSphereResult(finalNumber);
+                            sphereActive = false;
+                        }, 500);
+                    }
+                }, 100);
+            }
+        }
+
+        // Показать результат сферы
+        function showSphereResult(num) {
+            const meanings = {
+                1: "Число 1 - Лидерство и независимость. Вы прирожденный лидер с сильной волей.",
+                2: "Число 2 - Сотрудничество и гармония. Вы миротворец и дипломат.",
+                3: "Число 3 - Творчество и общение. У вас яркая личность и творческие способности.",
+                4: "Число 4 - Стабильность и трудолюбие. Вы надежны и практичны.",
+                5: "Число 5 - Свобода и приключения. Вы любите перемены и новый опыт.",
+                6: "Число 6 - Забота и ответственность. Вы прирожденный защитник и целитель.",
+                7: "Число 7 - Мудрость и духовность. У вас глубокий внутренний мир.",
+                8: "Число 8 - Материальный успех и власть. Вы стремитесь к достижениям.",
+                9: "Число 9 - Сострадание и служение. Вы гуманист с широким сердцем."
+            };
+            
+            alert(`🔮 Магическая сфера открыла тайну!\n\n${meanings[num]}`);
+        }
+
+        // Анализ личности
+        function analyzePersonality() {
+            const birthDate = document.getElementById('birthDate').value;
+            const analysisResult = document.getElementById('analysisResult');
+            
+            if (birthDate) {
+                const [year, month, day] = birthDate.split('-').map(Number);
+                const consciousnessNumber = reduceToSingleDigit(day);
+                const actionNumber = reduceToSingleDigit(month);
+                const realizationNumber = reduceToSingleDigit(year);
+
+                const characteristics = {
+                    1: "🌟 Лидерство, независимость, индивидуальность - вы прирожденный лидер",
+                    2: "🤝 Сотрудничество, дипломатия, чувствительность - вы миротворец",
+                    3: "🎨 Творчество, общительность, оптимизм - у вас яркая личность",
+                    4: "🏗️ Практичность, стабильность, трудолюбие - вы надежная опора",
+                    5: "🌍 Свобода, приключения, адаптивность - вы исследователь жизни",
+                    6: "💝 Ответственность, забота, гармония - вы прирожденный целитель",
+                    7: "🔍 Аналитичность, духовность, интроспекция - у вас глубокая мудрость",
+                    8: "💎 Материальный успех, власть, амбиции - вы стремитесь к вершинам",
+                    9: "🌈 Сострадание, гуманизм, щедрость - у вас великое сердце"
+                };
+
+                analysisResult.innerHTML = `
+                    <h3>✨ Ваш магический анализ личности ✨</h3>
+                    <div style="margin: 20px 0; padding: 15px; background: rgba(63, 81, 181, 0.2); border-radius: 10px;">
+                        <strong>🧠 Число сознания: ${consciousnessNumber}</strong><br>
+                        ${characteristics[consciousnessNumber]}
+                    </div>
+                    <div style="margin: 20px 0; padding: 15px; background: rgba(121, 134, 203, 0.2); border-radius: 10px;">
+                        <strong>⚡ Число действия: ${actionNumber}</strong><br>
+                        ${characteristics[actionNumber]}
+                    </div>
+                    <div style="margin: 20px 0; padding: 15px; background: rgba(63, 81, 181, 0.2); border-radius: 10px;">
+                        <strong>🎯 Число реализации: ${realizationNumber}</strong><br>
+                        ${characteristics[realizationNumber]}
+                    </div>
+                `;
+                analysisResult.style.display = 'block';
+                analysisResult.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                alert('🔮 Пожалуйста, введите дату рождения для магического анализа!');
+            }
+        }
+
+        // Расчет числа жизненного пути
+        function calculateLifePath() {
+            const birthDate = document.getElementById('birthDate').value;
+            const numerologyResult = document.getElementById('numerologyResult');
+            
+            if (birthDate) {
+                const dateSum = birthDate.split('-').join('').split('').reduce((a, b) => parseInt(a) + parseInt(b), 0);
+                const lifePathNumber = reduceToSingleDigit(dateSum);
+                
+                numerologyResult.innerHTML = `
+                    <h2>🌟 Ваше Число Жизненного Пути: ${lifePathNumber} 🌟</h2>
+                    <div style="margin: 25px 0; font-size: 1.3em;">
+                        ${getLifePathDescription(lifePathNumber)}
+                    </div>
+                    <div style="margin: 20px 0; padding: 20px; background: rgba(121, 134, 203, 0.2); border-radius: 15px;">
+                        <strong>✨ Магический совет:</strong><br>
+                        ${getLifePathAdvice(lifePathNumber)}
+                    </div>
+                `;
+                numerologyResult.style.display = 'block';
+                numerologyResult.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                alert('🔮 Пожалуйста, введите дату рождения для расчета числа судьбы!');
+            }
+        }
+
+        function reduceToSingleDigit(number) {
+            while (number > 9) {
+                number = number.toString().split('').reduce((acc, digit) => acc + parseInt(digit, 10), 0);
+            }
+            return number;
+        }
+
+        function getLifePathDescription(number) {
+            const descriptions = {
+                1: "🌟 Плюсы: Лидерство, независимость, инициативность, новаторство. Минусы: Упрямство, эгоцентризм, нетерпимость к критике.",
+                2: "🤝 Плюсы: Сотрудничество, дипломатия, чувствительность, миротворчество. Минусы: Зависимость, нерешительность, чрезмерная чувствительность.",
+                3: "🎨 Плюсы: Общительность, оптимизм, творчество, вдохновение. Минусы: Поверхностность, непостоянство, излишняя болтливость.",
+                4: "🏗️ Плюсы: Практичность, стабильность, трудолюбие, надежность. Минусы: Упрямство, ригидность, чрезмерная осторожность.",
+                5: "🌍 Плюсы: Свобода, приключения, адаптивность, любознательность. Минусы: Непостоянство, безответственность, импульсивность.",
+                6: "💝 Плюсы: Ответственность, забота, гармония, целительство. Минусы: Чрезмерная жертвенность, навязчивость, консерватизм.",
+                7: "🔍 Плюсы: Аналитичность, духовность, интроспекция, мудрость. Минусы: Изоляция, скептицизм, чрезмерная критичность.",
+                8: "💎 Плюсы: Материальный успех, власть, амбиции, организаторские способности. Минусы: Жесткость, властность, материализм.",
+                9: "🌈 Плюсы: Сострадание, гуманизм, щедрость, альтруизм. Минусы: Чрезмерная жертвенность, идеализм, эмоциональная нестабильность."
+            };
+            return descriptions[number];
+        }
+
+        function getLifePathAdvice(number) {
+            const advice = {
+                1: "Развивайте лидерские качества, но помните о командной работе. Ваша миссия - вести других к успеху.",
+                2: "Используйте свой дар дипломатии для создания гармонии. Вы - мост между людьми.",
+                3: "Не бойтесь выражать свою креативность. Мир нуждается в вашем творческом вдохновении.",
+                4: "Ваша практичность - ваша сила. Создавайте прочные основы для будущих поколений.",
+                5: "Путешествуйте и исследуйте мир. Ваша свобода вдохновляет других на перемены.",
+                6: "Заботьтесь о других, но не забывайте о себе. Ваша любовь исцеляет мир.",
+                7: "Доверьтесь своей интуиции и внутренней мудрости. Вы - духовный учитель.",
+                8: "Стремитесь к успеху, но помните о духовных ценностях. Богатство должно служить добру.",
+                9: "Служите человечеству с открытым сердцем. Ваше сострадание может изменить мир."
+            };
+            return advice[number];
+        }
+
+        // Всплывающие уведомления
+        function showPopup() {
+            document.getElementById('popup').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+
+        function openBot() {
+            alert('🤖 Магический бот находится внизу страницы!');
+        }
+
+        // Создание числовых частиц
+        function createNumberParticles() {
+            const container = document.getElementById('numberParticles');
+            const numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '∞', '☯', '⚡'];
+            
+            for (let i = 0; i < 35; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'number-particle';
+                particle.innerHTML = numbers[Math.floor(Math.random() * numbers.length)];
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+                particle.style.fontSize = (Math.random() * 15 + 20) + 'px';
+                container.appendChild(particle);
+            }
+        }
+
+        // Улучшенные звезды
+        const canvas = document.getElementById('starCanvas');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        const stars = [];
+        const shootingStars = [];
+
+        function createStars() {
+            const starCount = window.innerWidth < 600 ? 140 : 280;
+            for (let i = 0; i < starCount; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    radius: Math.random() * 3 + 1,
+                    speed: Math.random() * 0.6 + 0.2,
+                    direction: Math.random() * 2 * Math.PI,
+                    alpha: Math.random() * 0.8 + 0.2,
+                    twinkle: Math.random() * 2 * Math.PI,
+                    color: Math.random() > 0.5 ? 'rgba(63, 81, 181,' : 'rgba(121, 134, 203,'
+                });
+            }
+        }
+
+        function createShootingStar() {
+            if (Math.random() < 0.003) {
+                shootingStars.push({
+                    x: Math.random() * canvas.width,
+                    y: 0,
+                    speedX: (Math.random() - 0.5) * 10,
+                    speedY: Math.random() * 5 + 5,
+                    life: 1,
+                    decay: 0.018
+                });
+            }
+        }
+
+        function updateStars() {
+            for (let star of stars) {
+                star.x += Math.cos(star.direction) * star.speed;
+                star.y += Math.sin(star.direction) * star.speed;
+                star.twinkle += 0.025;
+
+                if (star.x > canvas.width || star.x < 0 || star.y > canvas.height || star.y < 0) {
+                    star.x = Math.random() * canvas.width;
+                    star.y = Math.random() * canvas.height;
+                }
+            }
+
+            for (let i = shootingStars.length - 1; i >= 0; i--) {
+                const star = shootingStars[i];
+                star.x += star.speedX;
+                star.y += star.speedY;
+                star.life -= star.decay;
+
+                if (star.life <= 0 || star.y > canvas.height) {
+                    shootingStars.splice(i, 1);
+                }
+            }
+
+            createShootingStar();
+        }
+
+        function drawStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            for (let star of stars) {
+                const twinkleAlpha = (Math.sin(star.twinkle) + 1) / 2;
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+                ctx.fillStyle = star.color + (star.alpha * twinkleAlpha) + ')';
+                ctx.fill();
+                
+                ctx.shadowBlur = 18;
+                ctx.shadowColor = star.color + '0.8)';
+            }
+
+            for (let star of shootingStars) {
+                ctx.beginPath();
+                ctx.moveTo(star.x, star.y);
+                ctx.lineTo(star.x - star.speedX * 8, star.y - star.speedY * 8);
+                ctx.strokeStyle = `rgba(121, 134, 203, ${star.life})`;
+                ctx.lineWidth = 3;
+                ctx.stroke();
+                
+                ctx.shadowBlur = 22;
+                ctx.shadowColor = '#7986cb';
+            }
+            
+            ctx.shadowBlur = 0;
+        }
+
+        function animateStars() {
+            updateStars();
+            drawStars();
+            requestAnimationFrame(animateStars);
+        }
+
+        createStars();
+        animateStars();
+
+        // События загрузки
+        window.onload = function() {
+            // Показать уведомление через 5 секунд
+            setTimeout(showPopup, 5000);
+
+            // Скрыть изображение загрузки через 1 секунду
+            setTimeout(function() {
+                const loadingImage = document.getElementById('loadingImage');
+                if (loadingImage) {
+                    loadingImage.style.display = 'none';
+                }
+            }, 1000);
+        };
+    </script>
+
+    <!-- Coze Web SDK -->
+    <script src="https://sf-cdn.coze.com/obj/unpkg-va/flow-platform/chat-app-sdk/0.1.0-beta.5/libs/oversea/index.js"></script>
+    <script>
+        new CozeWebSDK.WebChatClient({
+            config: {
+                bot_id: '7459047749447680005',
+            },
+            componentProps: {
+                title: 'Chubuk Нумерология',
+            },
+        });
+    
+        // Проверяем производительность устройства
+        const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        const isSlowDevice = navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4;
+        const isLowMemory = navigator.deviceMemory && navigator.deviceMemory < 4;
+        
+        // Применяем дополнительные оптимизации для медленных устройств
+        if (isSlowDevice || isLowMemory) {
+            document.body.classList.add('low-performance');
+        }
+        
+        // Инициализируем canvas только на десктопе
+        if (!isMobile) {
+            createStars();
+            animateStars();
+        }
+        
+        // Создаем частицы только на десктопе
+        if (!isMobile) {
+            createParticles();
+        }
+    </script>
+</body>
+</html>

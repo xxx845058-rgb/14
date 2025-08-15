@@ -1,0 +1,1246 @@
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Магические Толкования Снов | Онлайн Сонник</title>
+    
+    <meta name="description" content="Волшебные толкования снов с магическими эффектами. Узнайте значение своих снов с помощью нашего интерактивного сонника.">
+    <meta name="keywords" content="сонник, толкование снов, значение снов, онлайн гадание, магические сны">
+    
+    <link rel="canonical" href="https://ваш-домен.ru/Толкования_сонников.html">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Dancing+Script:wght@700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle at 50% 50%, #2e1065, #000000);
+            color: #fff;
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            min-height: 100vh;
+            cursor: none;
+            overflow-x: hidden;
+        }
+
+        /* Магический курсор */
+        .magic-cursor {
+            position: fixed;
+            width: 24px;
+            height: 24px;
+            background: radial-gradient(circle, #8e24aa, #ce93d8);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 10000;
+            mix-blend-mode: screen;
+            animation: dreamPulse 2.3s infinite;
+        }
+
+        @keyframes dreamPulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.7); opacity: 1; }
+        }
+
+        .cursor-trail {
+            position: fixed;
+            width: 5px;
+            height: 5px;
+            background: #8e24aa;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0;
+            animation: trailFade 1.3s ease-out forwards;
+        }
+
+        @keyframes trailFade {
+            0% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(0.2); }
+        }
+
+        /* Aurora снов */
+        .dream-aurora {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            opacity: 0.5;
+            background: linear-gradient(45deg, 
+                rgba(142, 36, 170, 0.4) 0%,
+                rgba(206, 147, 216, 0.4) 25%,
+                rgba(142, 36, 170, 0.4) 50%,
+                rgba(206, 147, 216, 0.4) 75%,
+                rgba(142, 36, 170, 0.4) 100%);
+            background-size: 400% 400%;
+            animation: dreamAurora 20s ease-in-out infinite;
+        }
+
+        @keyframes dreamAurora {
+            0%, 100% { background-position: 0% 50%; }
+            25% { background-position: 100% 0%; }
+            50% { background-position: 100% 100%; }
+            75% { background-position: 0% 100%; }
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4.2em;
+            background: linear-gradient(45deg, #8e24aa, #ce93d8, #8e24aa);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: dreamTitleShimmer 4s ease-in-out infinite;
+            margin: 30px 0;
+            text-shadow: 0 0 40px rgba(142, 36, 170, 0.6);
+        }
+
+        @keyframes dreamTitleShimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        p {
+            font-size: 1.4em;
+            color: #ce93d8;
+            text-shadow: 0 0 25px #ce93d8;
+            margin: 20px 0;
+            animation: textGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes textGlow {
+            from { text-shadow: 0 0 25px #ce93d8; }
+            to { text-shadow: 0 0 40px #ce93d8, 0 0 55px #8e24aa; }
+        }
+
+        .nav-menu {
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .nav-button {
+            padding: 18px 35px;
+            font-size: 1.3em;
+            background: linear-gradient(45deg, #8e24aa, #ce93d8);
+            color: #fff;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            margin: 10px;
+            box-shadow: 
+                0 0 30px rgba(142, 36, 170, 0.6), 
+                0 0 40px rgba(206, 147, 216, 0.4),
+                inset 0 0 30px rgba(255, 255, 255, 0.1);
+            transition: all 0.6s ease;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.4), 
+                transparent);
+            transition: all 0.7s ease;
+            transform: skewX(-45deg);
+        }
+
+        .nav-button:hover:before {
+            left: 100%;
+        }
+
+        .nav-button:hover {
+            background: linear-gradient(45deg, #ce93d8, #8e24aa);
+            box-shadow: 
+                0 0 40px rgba(142, 36, 170, 0.8), 
+                0 0 60px rgba(206, 147, 216, 0.6);
+            transform: translateY(-8px) scale(1.05);
+        }
+
+        /* Уведомление о боте */
+        .bot-notification {
+            background: rgba(46, 16, 101, 0.95);
+            color: #fff;
+            padding: 25px;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 15px;
+            z-index: 1000;
+            box-shadow: 
+                0 0 40px rgba(142, 36, 170, 0.6),
+                inset 0 0 40px rgba(142, 36, 170, 0.1);
+            width: 90%;
+            max-width: 600px;
+            display: none;
+            border: 2px solid #8e24aa;
+            backdrop-filter: blur(10px);
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: #ce93d8;
+            cursor: pointer;
+            font-weight: bold;
+            float: right;
+            font-size: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+            color: #8e24aa;
+            text-shadow: 0 0 20px #8e24aa;
+            transform: scale(1.2);
+        }
+
+        /* Секция интерпретации снов */
+        .dream-interpretations {
+            margin: 40px auto;
+            max-width: 800px;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 25px;
+            border: 3px solid #8e24aa;
+            box-shadow: 
+                0 0 50px rgba(142, 36, 170, 0.4),
+                inset 0 0 50px rgba(142, 36, 170, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .input-container {
+            margin: 30px 0;
+        }
+
+        .input-container input {
+            padding: 18px 25px;
+            font-size: 1.3em;
+            border-radius: 15px;
+            border: 2px solid #8e24aa;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            width: 70%;
+            max-width: 500px;
+            margin: 15px;
+            box-shadow: 
+                0 0 25px rgba(142, 36, 170, 0.3),
+                inset 0 0 25px rgba(142, 36, 170, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .input-container input:focus {
+            outline: none;
+            border-color: #ce93d8;
+            box-shadow: 
+                0 0 35px rgba(142, 36, 170, 0.6),
+                inset 0 0 35px rgba(142, 36, 170, 0.2);
+            transform: scale(1.02);
+        }
+
+        .input-container input::placeholder {
+            color: #ce93d8;
+            opacity: 0.7;
+        }
+
+        .result {
+            margin-top: 40px;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 20px;
+            color: #ce93d8;
+            border: 3px solid #8e24aa;
+            box-shadow: 
+                0 0 40px rgba(142, 36, 170, 0.4),
+                inset 0 0 40px rgba(142, 36, 170, 0.1);
+            font-size: 1.3em;
+            line-height: 1.8;
+            animation: resultGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes resultGlow {
+            from { 
+                box-shadow: 0 0 40px rgba(142, 36, 170, 0.4), inset 0 0 40px rgba(142, 36, 170, 0.1);
+            }
+            to { 
+                box-shadow: 0 0 60px rgba(142, 36, 170, 0.6), inset 0 0 60px rgba(142, 36, 170, 0.2);
+            }
+        }
+
+        /* Магические частицы снов */
+        .dream-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .dream-particle {
+            position: absolute;
+            color: #8e24aa;
+            font-size: 25px;
+            animation: dreamParticleFloat 14s infinite linear;
+            opacity: 0.7;
+        }
+
+        @keyframes dreamParticleFloat {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Звуковая кнопка */
+        .sound-button {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: linear-gradient(45deg, #4a90e2, #7bb3f0);
+            border: none;
+            border-radius: 50%;
+            width: 65px;
+            height: 65px;
+            cursor: pointer;
+            z-index: 10001;
+            box-shadow: 0 0 25px rgba(74, 144, 226, 0.5);
+            transition: all 0.3s ease;
+            font-size: 1.6em;
+        }
+
+        .sound-button:hover {
+            transform: scale(1.15);
+            box-shadow: 0 0 35px rgba(74, 144, 226, 0.8);
+        }
+
+        /* Адаптивность для планшетов */
+        @media (max-width: 768px) {
+            .dream-interpretations { 
+                padding: 20px; 
+                margin-top: 80px;
+            }
+            .input-container input { 
+                width: 100%;
+                font-size: 1em;
+                padding: 12px;
+            }
+            h1 { 
+                font-size: 2.5em; 
+                margin-bottom: 15px;
+            }
+            .nav-menu { 
+                padding: 15px 20px;
+            }
+            .nav-button { 
+                width: 120px; 
+                font-size: 0.9em; 
+                padding: 12px 20px;
+                margin: 8px 5px;
+            }
+            .header p {
+                font-size: 1.2em;
+                margin-bottom: 20px;
+            }
+            .dream-interpretations h3 {
+                font-size: 1.5em;
+                margin-bottom: 10px;
+            }
+            .dream-interpretations p {
+                font-size: 1em;
+                line-height: 1.5;
+            }
+            .sound-button {
+                width: 50px;
+                height: 50px;
+                bottom: 15px;
+                left: 15px;
+            }
+            
+            /* Отключаем тяжелые анимации на планшетах */
+            .aurora {
+                animation: none;
+                opacity: 0.3;
+            }
+            
+            .crystal {
+                display: none;
+            }
+            
+            .particle {
+                display: none;
+            }
+        }
+
+        /* Адаптивность для мобильных телефонов */
+        @media (max-width: 480px) {
+            .dream-interpretations { 
+                padding: 15px; 
+                margin-top: 70px;
+            }
+            .input-container input { 
+                width: 100%;
+                font-size: 0.9em;
+                padding: 10px;
+            }
+            h1 { 
+                font-size: 2em; 
+                margin-bottom: 10px;
+                line-height: 1.2;
+            }
+            .nav-menu { 
+                padding: 10px 15px;
+                flex-wrap: wrap;
+            }
+            .nav-button { 
+                width: 100px; 
+                font-size: 0.8em; 
+                padding: 10px 15px;
+                margin: 5px 3px;
+            }
+            .header p {
+                font-size: 1em;
+                margin-bottom: 15px;
+            }
+            .dream-interpretations h3 {
+                font-size: 1.3em;
+                margin-bottom: 8px;
+            }
+            .dream-interpretations p {
+                font-size: 0.9em;
+                line-height: 1.4;
+            }
+            .sound-button {
+                width: 45px;
+                height: 45px;
+                bottom: 10px;
+                left: 10px;
+            }
+            
+            /* Отключаем все тяжелые анимации на мобильных */
+            .aurora {
+                animation: none;
+                opacity: 0.2;
+            }
+            
+            .crystal {
+                display: none;
+            }
+            
+            .particle {
+                display: none;
+            }
+            
+            /* Упрощаем фон */
+            body {
+                background: linear-gradient(135deg, #1a0033 0%, #000000 100%);
+            }
+            
+            /* Отключаем canvas анимации */
+            #starCanvas {
+                display: none;
+            }
+        }
+
+        /* Адаптивность для очень маленьких экранов */
+        @media (max-width: 360px) {
+            .dream-interpretations { 
+                padding: 10px; 
+                margin-top: 60px;
+            }
+            .input-container input { 
+                width: 100%;
+                font-size: 0.85em;
+                padding: 8px;
+            }
+            h1 { 
+                font-size: 1.8em; 
+            }
+            .nav-menu { 
+                padding: 8px 10px;
+            }
+            .nav-button { 
+                width: 90px; 
+                font-size: 0.75em; 
+                padding: 8px 12px;
+                margin: 3px 2px;
+            }
+            .sound-button {
+                width: 40px;
+                height: 40px;
+                bottom: 8px;
+                left: 8px;
+            }
+        }
+
+        /* Ландшафтная ориентация на мобильных */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .dream-interpretations {
+                margin-top: 50px;
+                padding: 10px;
+            }
+            .nav-menu {
+                padding: 8px 15px;
+            }
+            .nav-button {
+                width: 100px;
+                font-size: 0.8em;
+                padding: 8px 12px;
+                margin: 5px 3px;
+            }
+            h1 {
+                font-size: 1.8em;
+                margin-bottom: 8px;
+            }
+            .sound-button {
+                bottom: 10px;
+                left: 10px;
+            }
+        }
+
+        /* Улучшенная поддержка touch устройств */
+        @media (hover: none) and (pointer: coarse) {
+            .nav-button:hover {
+                transform: none;
+                box-shadow: 
+                    0 8px 25px rgba(0, 0, 0, 0.3),
+                    0 0 25px rgba(255, 0, 222, 0.4),
+                    inset 0 0 25px rgba(255, 255, 255, 0.1);
+            }
+            
+            .nav-button:active {
+                transform: scale(0.95);
+                box-shadow: 
+                    0 4px 15px rgba(0, 0, 0, 0.4),
+                    0 0 30px rgba(255, 0, 222, 0.6);
+            }
+
+            .sound-button:hover {
+                transform: none;
+            }
+            
+            .sound-button:active {
+                transform: scale(0.9);
+            }
+            
+            /* Отключаем тяжелые эффекты на touch устройствах */
+            .aurora {
+                animation: none;
+                opacity: 0.2;
+            }
+            
+            .crystal {
+                display: none;
+            }
+            
+            .particle {
+                display: none;
+            }
+            
+            #starCanvas {
+                display: none;
+            }
+        }
+    
+        /* ОПТИМИЗАЦИИ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ */
+        
+        /* Оптимизации для медленных устройств */
+        .low-performance * {
+            animation: none !important;
+            transition: none !important;
+        }
+        
+        .low-performance .aurora,
+        .low-performance .numerology-aurora,
+        .low-performance .rune-aurora,
+        .low-performance .dream-aurora {
+            display: none !important;
+        }
+        
+        .low-performance .particles,
+        .low-performance .numerology-particles,
+        .low-performance .rune-particles,
+        .low-performance .dream-particles {
+            display: none !important;
+        }
+        
+        .low-performance #starCanvas {
+            display: none !important;
+        }
+        
+        .low-performance .magic-cursor {
+            display: none !important;
+        }
+        
+        .low-performance .cursor-trail {
+            display: none !important;
+        }
+        
+        .low-performance body {
+            background: #000000 !important;
+        }
+        
+        .low-performance .nav-button,
+        .low-performance .button {
+            box-shadow: none !important;
+        }
+        
+        .low-performance h1 {
+            background: #c77dff !important;
+            -webkit-text-fill-color: #c77dff !important;
+        }
+        
+        .low-performance p {
+            text-shadow: none !important;
+        }
+
+        /* Адаптивность для планшетов */
+        @media (max-width: 768px) {
+            .aurora,
+            .numerology-aurora,
+            .rune-aurora,
+            .dream-aurora {
+                animation: none !important;
+                opacity: 0.2 !important;
+            }
+            
+            .particles,
+            .numerology-particles,
+            .rune-particles,
+            .dream-particles {
+                display: none !important;
+            }
+            
+            #starCanvas {
+                display: none !important;
+            }
+            
+            .magic-cursor {
+                display: none !important;
+            }
+            
+            .cursor-trail {
+                display: none !important;
+            }
+            
+            /* Упрощаем анимации */
+            .card,
+            .rune-card,
+            .dream-card {
+                animation: none !important;
+                transition: transform 0.3s ease !important;
+            }
+            
+            .card:hover,
+            .rune-card:hover,
+            .dream-card:hover {
+                transform: translateY(-5px) scale(1.02) !important;
+            }
+            
+            /* Отключаем сложные эффекты */
+            .nav-button:before {
+                display: none !important;
+            }
+            
+            .nav-button:hover {
+                transform: translateY(-2px) scale(1.02) !important;
+                box-shadow: 0 5px 15px rgba(157, 78, 221, 0.4) !important;
+            }
+        }
+
+        /* Адаптивность для мобильных телефонов */
+        @media (max-width: 480px) {
+            .aurora,
+            .numerology-aurora,
+            .rune-aurora,
+            .dream-aurora {
+                animation: none !important;
+                opacity: 0.1 !important;
+            }
+            
+            .particles,
+            .numerology-particles,
+            .rune-particles,
+            .dream-particles {
+                display: none !important;
+            }
+            
+            #starCanvas {
+                display: none !important;
+            }
+            
+            .magic-cursor {
+                display: none !important;
+            }
+            
+            .cursor-trail {
+                display: none !important;
+            }
+            
+            /* Упрощаем анимации карт */
+            .card,
+            .rune-card,
+            .dream-card {
+                animation: none !important;
+                transition: transform 0.2s ease !important;
+            }
+            
+            .card:hover,
+            .rune-card:hover,
+            .dream-card:hover {
+                transform: translateY(-3px) scale(1.01) !important;
+            }
+            
+            /* Отключаем сложные эффекты */
+            .nav-button:before {
+                display: none !important;
+            }
+            
+            .nav-button:hover {
+                transform: translateY(-1px) scale(1.01) !important;
+                box-shadow: 0 3px 10px rgba(157, 78, 221, 0.3) !important;
+            }
+            
+            /* Упрощаем фон */
+            body {
+                background: linear-gradient(135deg, #1a0033 0%, #000000 100%) !important;
+            }
+            
+            /* Отключаем сложные тени */
+            .nav-button {
+                box-shadow: 0 3px 10px rgba(157, 78, 221, 0.3) !important;
+            }
+            
+            .button {
+                box-shadow: 0 5px 15px rgba(157, 78, 221, 0.4) !important;
+            }
+            
+            /* Упрощаем анимации текста */
+            h1 {
+                animation: none !important;
+                background: linear-gradient(45deg, #9d4edd, #c77dff) !important;
+                -webkit-background-clip: text !important;
+                background-clip: text !important;
+                -webkit-text-fill-color: transparent !important;
+            }
+            
+            p {
+                animation: none !important;
+                text-shadow: 0 0 10px #c77dff !important;
+            }
+        }
+
+        /* Адаптивность для очень маленьких экранов */
+        @media (max-width: 360px) {
+            .aurora,
+            .numerology-aurora,
+            .rune-aurora,
+            .dream-aurora {
+                display: none !important;
+            }
+            
+            .particles,
+            .numerology-particles,
+            .rune-particles,
+            .dream-particles {
+                display: none !important;
+            }
+            
+            #starCanvas {
+                display: none !important;
+            }
+            
+            .magic-cursor {
+                display: none !important;
+            }
+            
+            .cursor-trail {
+                display: none !important;
+            }
+            
+            /* Максимально упрощаем анимации */
+            .card,
+            .rune-card,
+            .dream-card {
+                animation: none !important;
+                transition: none !important;
+            }
+            
+            .card:hover,
+            .rune-card:hover,
+            .dream-card:hover {
+                transform: none !important;
+            }
+            
+            .nav-button {
+                transition: none !important;
+            }
+            
+            .nav-button:hover {
+                transform: none !important;
+            }
+            
+            /* Упрощаем фон до минимума */
+            body {
+                background: #000000 !important;
+            }
+            
+            /* Отключаем все тени */
+            .nav-button {
+                box-shadow: none !important;
+            }
+            
+            .button {
+                box-shadow: none !important;
+            }
+            
+            /* Упрощаем текст */
+            h1 {
+                animation: none !important;
+                background: #c77dff !important;
+                -webkit-text-fill-color: #c77dff !important;
+            }
+            
+            p {
+                animation: none !important;
+                text-shadow: none !important;
+            }
+        }
+
+        /* Улучшенная поддержка touch устройств */
+        @media (hover: none) and (pointer: coarse) {
+            .aurora,
+            .numerology-aurora,
+            .rune-aurora,
+            .dream-aurora {
+                animation: none !important;
+                opacity: 0.1 !important;
+            }
+            
+            .particles,
+            .numerology-particles,
+            .rune-particles,
+            .dream-particles {
+                display: none !important;
+            }
+            
+            #starCanvas {
+                display: none !important;
+            }
+            
+            .magic-cursor {
+                display: none !important;
+            }
+            
+            .cursor-trail {
+                display: none !important;
+            }
+            
+            /* Упрощаем анимации карт */
+            .card,
+            .rune-card,
+            .dream-card {
+                animation: none !important;
+                transition: transform 0.2s ease !important;
+            }
+            
+            .card:hover,
+            .rune-card:hover,
+            .dream-card:hover {
+                transform: none !important;
+            }
+            
+            .card:active,
+            .rune-card:active,
+            .dream-card:active {
+                transform: scale(0.98) !important;
+            }
+            
+            /* Отключаем сложные эффекты */
+            .nav-button:before {
+                display: none !important;
+            }
+            
+            /* Упрощаем фон */
+            body {
+                background: linear-gradient(135deg, #1a0033 0%, #000000 100%) !important;
+            }
+            
+            /* Отключаем сложные тени */
+            .nav-button {
+                box-shadow: 0 3px 10px rgba(157, 78, 221, 0.3) !important;
+            }
+            
+            .button {
+                box-shadow: 0 5px 15px rgba(157, 78, 221, 0.4) !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dream-aurora"></div>
+    <div class="dream-particles" id="dreamParticles"></div>
+    
+    <!-- Кнопка звука -->
+    <button class="sound-button" onclick="toggleSound()" title="Переключить звук">🔊</button>
+    
+    <!-- Всплывающее уведомление -->
+    <div class="bot-notification" id="botNotification" style="display: none;">
+        <button class="close-btn" onclick="closeNotification()">×</button>
+        <h3>🌙 Добро пожаловать в мир магических снов! 🌙</h3>
+        <p>У нас есть волшебный бот, который поможет вам раскрыть тайны ваших снов! Нажмите на кнопку ниже, чтобы начать магическое путешествие.</p>
+        <button class="nav-button" onclick="startBot(); playMagicSound(1000, 600)" style="margin: 15px 0;">✨ Начать разговор с магическим ботом ✨</button>
+    </div>
+
+    <nav class="nav-menu">
+        <button class="nav-button" onclick="window.location.href='нумерология.html'" 
+                onmouseover="playMagicSound(500, 300)">🔢 Нумерология</button>
+        <button class="nav-button" onclick="window.location.href='таро.html'" 
+                onmouseover="playMagicSound(600, 300)">🃏 Таро</button>
+        <button class="nav-button" onclick="window.location.href='руны.html'" 
+                onmouseover="playMagicSound(700, 300)">ᚱ Руны</button>
+        <button class="nav-button" onclick="window.location.href='Толкования снов.html'" 
+                onmouseover="playMagicSound(800, 300)">💭 Толкования снов</button>
+    </nav>
+
+    <header>
+        <h1>🌙 Магический Сонник 🌙</h1>
+        <p>✨ Раскройте тайны своих снов с помощью нашего волшебного сонника ✨</p>
+    </header>
+
+    <main>
+        <section class="dream-interpretations">
+            <h3>🔮 Опишите свой сон для магической интерпретации 🔮</h3>
+            <p>Введите ключевые слова или опишите свой сон, и древняя магия раскроет его значение</p>
+            <div class="input-container">
+                <input type="text" id="dreamInput" placeholder="Опишите свой волшебный сон..." />
+                <br>
+                <button class="nav-button" onclick="interpretDream(); playMagicSound(1200, 700)" 
+                        style="margin-top: 20px;">
+                    ✨ Толковать магический сон ✨
+                </button>
+            </div>
+            <div id="result" class="result" style="display: none;"></div>
+        </section>
+    </main>
+
+    <footer style="margin-top: 60px;">
+        <p>🌟 2025 Магические Толкования Снов. Каждый сон несет в себе послание 🌟</p>
+    </footer>
+
+    <script>
+        let audioContext;
+        let soundEnabled = true;
+
+        // Расширенная база толкований снов
+        const dreamInterpretations = {
+            "полет": {
+                meaning: "Сон о полете символизирует свободу духа, стремление к новым высотам и освобождение от ограничений. Вы готовы взлететь над проблемами.",
+                advice: "Доверьтесь своим способностям и не бойтесь рисковать. Время для смелых решений.",
+                element: "Воздух"
+            },
+            "падение": {
+                meaning: "Сон о падении указывает на потерю контроля или страх перед неудачей. Возможно, вы чувствуете нестабильность в жизни.",
+                advice: "Найдите опору в себе и близких. Падение - это возможность научиться летать.",
+                element: "Земля"
+            },
+            "вода": {
+                meaning: "Сон о воде символизирует эмоции, подсознание и очищение. Чистая вода - к удаче, мутная - к эмоциональным проблемам.",
+                advice: "Прислушайтесь к своим чувствам. Время для эмоционального очищения.",
+                element: "Вода"
+            },
+            "смерть": {
+                meaning: "Сон о смерти означает конец одного этапа жизни и начало нового. Это символ трансформации и перерождения.",
+                advice: "Не бойтесь перемен. Старое уходит, чтобы освободить место новому.",
+                element: "Земля"
+            },
+            "животные": {
+                meaning: "Сны о животных символизируют инстинкты, природные желания и скрытые аспекты личности. Каждое животное имеет свое значение.",
+                advice: "Изучите, какое животное вам приснилось, и раскройте его послание.",
+                element: "Земля"
+            },
+            "огонь": {
+                meaning: "Огонь во сне символизирует страсть, преобразование и очищение. Может означать как разрушение, так и обновление.",
+                advice: "Направьте свою энергию в созидательное русло. Огонь может согревать или сжигать.",
+                element: "Огонь"
+            },
+            "дом": {
+                meaning: "Дом во сне представляет вашу личность и внутренний мир. Состояние дома отражает ваше психологическое состояние.",
+                advice: "Позаботьтесь о своем внутреннем мире. Наведите порядок в мыслях и чувствах.",
+                element: "Земля"
+            },
+            "деньги": {
+                meaning: "Сны о деньгах могут символизировать самооценку, власть или материальные желания. Находка денег - к удаче, потеря - к страхам.",
+                advice: "Подумайте о своих истинных ценностях. Богатство души важнее материального.",
+                element: "Земля"
+            },
+            "змея": {
+                meaning: "Змея во сне символизирует мудрость, исцеление, но также может означать скрытую угрозу или трансформацию.",
+                advice: "Будьте мудры в принятии решений. Змея может быть как врагом, так и учителем.",
+                element: "Земля"
+            },
+            "цветы": {
+                meaning: "Цветы во сне символизируют красоту, рост, любовь и духовное развитие. Цветущие цветы - к радости и успеху.",
+                advice: "Откройте свое сердце для красоты и любви. Время цветения вашей души.",
+                element: "Земля"
+            }
+        };
+
+        // Инициализация аудио
+        function initAudio() {
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        }
+
+        // Звуковые эффекты
+        function playMagicSound(frequency = 800, duration = 200) {
+            if (!soundEnabled || !audioContext) return;
+            
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
+            oscillator.frequency.exponentialRampToValueAtTime(frequency * 1.6, audioContext.currentTime + duration / 1000);
+            
+            gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + duration / 1000);
+            
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + duration / 1000);
+        }
+
+        function toggleSound() {
+            soundEnabled = !soundEnabled;
+            const button = document.querySelector('.sound-button');
+            button.innerHTML = soundEnabled ? '🔊' : '🔇';
+        }
+
+        // Магический курсор
+        document.addEventListener('DOMContentLoaded', function() {
+            const cursor = document.createElement('div');
+            cursor.className = 'magic-cursor';
+            document.body.appendChild(cursor);
+
+            let mouseX = 0, mouseY = 0;
+            let cursorX = 0, cursorY = 0;
+
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+
+                // Создаем след
+                if (Math.random() < 0.4) {
+                    const trail = document.createElement('div');
+                    trail.className = 'cursor-trail';
+                    trail.style.left = mouseX + 'px';
+                    trail.style.top = mouseY + 'px';
+                    document.body.appendChild(trail);
+
+                    setTimeout(() => {
+                        if (document.body.contains(trail)) {
+                            document.body.removeChild(trail);
+                        }
+                    }, 1300);
+                }
+            });
+
+            function updateCursor() {
+                cursorX += (mouseX - cursorX) * 0.1;
+                cursorY += (mouseY - cursorY) * 0.1;
+                cursor.style.left = cursorX + 'px';
+                cursor.style.top = cursorY + 'px';
+                requestAnimationFrame(updateCursor);
+            }
+            updateCursor();
+
+            // Инициализация
+            document.addEventListener('click', initAudio, { once: true });
+            createDreamParticles();
+        });
+
+        // Толкование снов
+        function interpretDream() {
+            const dreamInput = document.getElementById('dreamInput').value.toLowerCase();
+            const resultDiv = document.getElementById('result');
+            
+            if (!dreamInput.trim()) {
+                alert('🌙 Пожалуйста, опишите свой сон для магического толкования!');
+                return;
+            }
+
+            let interpretation = null;
+            let matchedKey = '';
+            
+            // Поиск совпадений в базе толкований
+            for (const [key, value] of Object.entries(dreamInterpretations)) {
+                if (dreamInput.includes(key)) {
+                    interpretation = value;
+                    matchedKey = key;
+                    break;
+                }
+            }
+
+            if (interpretation) {
+                resultDiv.innerHTML = `
+                    <h3>🌟 Магическое толкование вашего сна 🌟</h3>
+                    <div style="margin: 25px 0; padding: 20px; background: rgba(142, 36, 170, 0.2); border-radius: 15px;">
+                        <strong>🔮 Ключевой символ:</strong> ${matchedKey.charAt(0).toUpperCase() + matchedKey.slice(1)}
+                    </div>
+                    <div style="margin: 25px 0; padding: 20px; background: rgba(206, 147, 216, 0.2); border-radius: 15px;">
+                        <strong>✨ Элемент:</strong> ${interpretation.element}
+                    </div>
+                    <div style="margin: 20px 0; font-size: 1.2em; line-height: 1.8;">
+                        <strong>💫 Значение:</strong><br>
+                        ${interpretation.meaning}
+                    </div>
+                    <div style="margin: 20px 0; color: #ce93d8; font-style: italic; font-size: 1.1em;">
+                        <strong>🌙 Магический совет:</strong><br>
+                        ${interpretation.advice}
+                    </div>
+                `;
+            } else {
+                resultDiv.innerHTML = `
+                    <h3>🌙 Ваш сон уникален 🌙</h3>
+                    <p style="font-size: 1.2em; line-height: 1.6;">
+                        🔮 Каждый сон несет в себе личное послание. Ваш сон "${dreamInput}" может символизировать:
+                    </p>
+                    <div style="margin: 20px 0; padding: 20px; background: rgba(142, 36, 170, 0.2); border-radius: 15px;">
+                        • Отражение ваших текущих переживаний<br>
+                        • Подсознательные желания и страхи<br>
+                        • Предчувствие будущих событий<br>
+                        • Послание от высших сил
+                    </div>
+                    <p style="color: #ce93d8; font-style: italic;">
+                        ✨ Доверьтесь своей интуиции - она подскажет истинное значение вашего сна.
+                    </p>
+                `;
+            }
+            
+            resultDiv.style.display = 'block';
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+            
+            // Эффект появления
+            resultDiv.style.opacity = '0';
+            resultDiv.style.transform = 'translateY(30px)';
+            
+            setTimeout(() => {
+                resultDiv.style.transition = 'all 1s ease';
+                resultDiv.style.opacity = '1';
+                resultDiv.style.transform = 'translateY(0)';
+            }, 100);
+        }
+
+        // Обработка Enter в поле ввода
+        document.addEventListener('DOMContentLoaded', function() {
+            const dreamInput = document.getElementById('dreamInput');
+            dreamInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    interpretDream();
+                    playMagicSound(1200, 700);
+                }
+            });
+        });
+
+        function startBot() {
+            alert('🤖 Волшебный бот находится внизу страницы!');
+        }
+
+        function closeNotification() {
+            document.getElementById('botNotification').style.display = 'none';
+        }
+
+        // Создание магических частиц снов
+        function createDreamParticles() {
+            const container = document.getElementById('dreamParticles');
+            const dreamSymbols = ['🌙', '⭐', '✨', '💫', '🔮', '💤', '👁️', '🌟', '🦋', '🎭'];
+            
+            for (let i = 0; i < 40; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'dream-particle';
+                particle.innerHTML = dreamSymbols[Math.floor(Math.random() * dreamSymbols.length)];
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 14 + 's';
+                particle.style.animationDuration = (Math.random() * 8 + 14) + 's';
+                particle.style.fontSize = (Math.random() * 15 + 15) + 'px';
+                container.appendChild(particle);
+            }
+        }
+
+        // Показать уведомление о боте при загрузке страницы
+        window.onload = function() {
+            setTimeout(() => {
+                document.getElementById('botNotification').style.display = 'block';
+            }, 2000);
+        };
+    </script>
+
+    <!-- Интеграция бота Coze -->
+    <script src="https://sf-cdn.coze.com/obj/unpkg-va/flow-platform/chat-app-sdk/1.1.0-beta.0/libs/oversea/index.js"></script>
+    <script>
+        new CozeWebSDK.WebChatClient({
+            config: {
+                bot_id: '7459723475868188678',
+            },
+            componentProps: {
+                title: 'Магический Чубук - Толкования Снов',
+            },
+        });
+    
+        // Проверяем производительность устройства
+        const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        const isSlowDevice = navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4;
+        const isLowMemory = navigator.deviceMemory && navigator.deviceMemory < 4;
+        
+        // Применяем дополнительные оптимизации для медленных устройств
+        if (isSlowDevice || isLowMemory) {
+            document.body.classList.add('low-performance');
+        }
+        
+        // Инициализируем canvas только на десктопе
+        if (!isMobile) {
+            createStars();
+            animateStars();
+        }
+        
+        // Создаем частицы только на десктопе
+        if (!isMobile) {
+            createParticles();
+        }
+    </script>
+</body>
+
+</html>
