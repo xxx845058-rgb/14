@@ -1,0 +1,311 @@
+/* Основные стили */
+.App-logo {
+    height: 40vmin;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
+}
+
+.App-header {
+    background-color: #0f0f10;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.App-link {
+    color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Цветовые константы */
+:root {
+  --gold: #ffd700;
+  --purple-glow: #8b5cf6;
+  --indigo-glow: #6366f1;
+}
+
+/* Анимированный звездный фон */
+.stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.6), transparent),
+    radial-gradient(2px 2px at 160px 30px, #ddd, transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+  animation: zoom 20s infinite;
+  opacity: 0.4;
+}
+
+.twinkling {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: 
+    radial-gradient(1px 1px at 50px 50px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 100px 100px, rgba(255,215,0,0.6), transparent),
+    radial-gradient(1px 1px at 150px 150px, rgba(139,92,246,0.4), transparent);
+  background-repeat: repeat;
+  background-size: 300px 300px;
+  animation: twinkle 4s ease-in-out infinite alternate;
+}
+
+@keyframes zoom {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+}
+
+/* Аврора эффекты */
+.aurora {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.aurora-1 {
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(139, 92, 246, 0.1) 50%,
+    rgba(99, 102, 241, 0.08) 70%,
+    transparent 90%
+  );
+  animation: aurora-drift 25s ease-in-out infinite;
+}
+
+.aurora-2 {
+  background: linear-gradient(
+    -45deg,
+    transparent 20%,
+    rgba(167, 139, 250, 0.06) 40%,
+    rgba(139, 92, 246, 0.1) 60%,
+    transparent 80%
+  );
+  animation: aurora-drift 30s ease-in-out infinite reverse;
+}
+
+@keyframes aurora-drift {
+  0%, 100% {
+    transform: translateX(-50px) translateY(-30px) rotate(0deg);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translateX(50px) translateY(-60px) rotate(1deg);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateX(-30px) translateY(30px) rotate(-0.5deg);
+    opacity: 0.4;
+  }
+  75% {
+    transform: translateX(70px) translateY(-10px) rotate(0.8deg);
+    opacity: 0.7;
+  }
+}
+
+/* Стили для таро карт */
+.tarot-card-container {
+  perspective: 1000px;
+}
+
+.tarot-card {
+  transform-style: preserve-3d;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tarot-card:hover {
+  transform: translateY(-10px) rotateY(5deg) rotateX(5deg);
+}
+
+/* Золотой цвет для акцентов */
+.text-gold {
+  color: var(--gold);
+}
+
+.bg-gold {
+  background-color: var(--gold);
+}
+
+.border-gold {
+  border-color: var(--gold);
+}
+
+/* Эффект свечения */
+.glow-purple {
+  box-shadow: 
+    0 0 5px var(--purple-glow),
+    0 0 10px var(--purple-glow),
+    0 0 15px var(--purple-glow);
+}
+
+.glow-gold {
+  box-shadow: 
+    0 0 5px var(--gold),
+    0 0 10px var(--gold),
+    0 0 15px var(--gold);
+}
+
+/* Анимации для карт */
+.card-flip-enter {
+  transform: rotateY(180deg);
+}
+
+.card-flip-enter-active {
+  transform: rotateY(0deg);
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-shuffle {
+  animation: shuffle 0.5s ease-in-out;
+}
+
+@keyframes shuffle {
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+  25% {
+    transform: translateX(-20px) rotate(-10deg);
+  }
+  50% {
+    transform: translateX(20px) rotate(10deg);
+  }
+  75% {
+    transform: translateX(-10px) rotate(-5deg);
+  }
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+}
+
+/* Магические частицы */
+.magic-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--gold);
+  border-radius: 50%;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-100px) rotate(180deg);
+  }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .tarot-card {
+    width: 120px !important;
+    height: 180px !important;
+  }
+  
+  .aurora-1,
+  .aurora-2 {
+    display: none; /* Отключаем тяжёлые эффекты на мобильных */
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(139, 92, 246, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.7);
+}
+
+/* Утилиты для текста */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
